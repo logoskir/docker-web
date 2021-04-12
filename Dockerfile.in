@@ -1,0 +1,13 @@
+FROM alpine
+
+RUN apk add git \
+&& apk add yarn \
+&& git clone https://github.com/logoskir/docker-web.git \
+&& cd docker-web \
+&& yarn
+
+WORKDIR ./docker-web
+
+CMD yarn start
+
+EXPOSE 3000
